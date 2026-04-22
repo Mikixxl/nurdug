@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a1628">
+  <title>Nurdug AG - Real Estate Holding, Berlin</title>
+  <meta name="description" content="Nurdug AG is a Berlin-based real estate holding focused on long-term ownership, responsible letting, and durable value.">
+  <meta name="keywords" content="Nurdug AG, real estate, Immobilien, holding, Berlin, Germany, long-term ownership, rental, Immobilienholding">
+  <meta name="author" content="Nurdug AG">
+  <link rel="canonical" href="https://nurdug.org/">
+
+  <!-- Favicon chain -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nurdug AG">
+  <meta property="og:title" content="Nurdug AG - Real Estate Holding, Berlin">
+  <meta property="og:description" content="A holding built for the long horizon. Substantial real estate, responsible letting, durable value.">
+  <meta property="og:url" content="https://nurdug.org/">
+  <meta property="og:image" content="https://nurdug.org/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nurdug AG - Real Estate Holding, Berlin">
+  <meta name="twitter:description" content="A holding built for the long horizon.">
+  <meta name="twitter:image" content="https://nurdug.org/og-image.jpg">
+
+  <!-- JSON-LD: RealEstateAgent (most precise schema for a real-estate holding) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Nurdug AG",
+    "legalName": "Nurdug AG",
+    "url": "https://nurdug.org",
+    "logo": "https://nurdug.org/logo.png",
+    "image": "https://nurdug.org/og-image.jpg",
+    "description": "Berlin-based real estate holding. Long-term ownership, responsible letting, durable value.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Goethestra\u00dfe 49",
+      "addressLocality": "Berlin",
+      "postalCode": "12305",
+      "addressCountry": "DE"
+    },
+    "telephone": "+49 30 50508720",
+    "faxNumber": "+49 30 50508719",
+    "email": "info@nurdug.org",
+    "areaServed": "DE",
+    "knowsLanguage": ["en","de","fr","es","it","pt","ru","zh","ja","ko","hi","ar","he"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles-v1.css">
+
+<style>
+  /* Footer legal link row (Pattern 18 Modal) */
+  .footer-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .footer-legal-link {
+    background: transparent; border: none; color: inherit;
+    opacity: 0.85; font: inherit; cursor: pointer;
+    padding: 0.25rem 0.4rem; transition: opacity 0.2s;
+  }
+  .footer-legal-link:hover { opacity: 1; text-decoration: underline; }
+  .footer-legal-link:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.5);
+    outline-offset: 2px; border-radius: 3px;
+  }
+  .footer-legal-sep { opacity: 0.5; user-select: none; }
+  .footer-legal-copy { opacity: 0.85; font-size: 0.9em; }
+
+  /* Legal modal */
+  .legal-modal {
+    position: fixed; inset: 0; z-index: 1000;
+    display: none; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .legal-modal.is-open { display: flex; }
+  .legal-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(10, 22, 40, 0.55);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    animation: legalFade 0.25s ease-out;
+  }
+  .legal-modal-panel {
+    position: relative; max-width: 720px; width: 100%;
+    max-height: 85vh; overflow-y: auto;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.7); border-radius: 16px;
+    padding: 2.5rem 2.25rem 2rem;
+    box-shadow: 0 24px 64px rgba(10, 22, 40, 0.4);
+    color: #1a1a1a;
+    animation: legalRise 0.28s cubic-bezier(.22,.96,.37,1);
+  }
+  @keyframes legalFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes legalRise {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .legal-modal-close {
+    position: absolute; top: 0.5rem; right: 0.75rem;
+    width: 2.5rem; height: 2.5rem;
+    display: flex; align-items: center; justify-content: center;
+    background: transparent; border: none;
+    font-size: 1.6rem; line-height: 1; color: #333;
+    cursor: pointer; opacity: 0.55; border-radius: 50%;
+    transition: opacity 0.2s, background 0.2s;
+  }
+  .legal-modal-close:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+  .legal-modal-body { display: none; }
+  .legal-modal-body.is-visible { display: block; }
+  .legal-modal-body h3 {
+    margin: 0 0 0.75rem; font-size: 1.4rem; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .legal-modal-body h4 {
+    margin: 1.6rem 0 0.4rem; font-size: 1rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em; color: #555;
+  }
+  .legal-modal-body p { margin: 0 0 0.75rem; line-height: 1.6; }
+  .legal-modal-body ul { margin: 0.25rem 0 0.75rem 1.2rem; padding: 0; }
+  .legal-modal-body li { margin: 0.15rem 0; line-height: 1.55; }
+  .legal-modal-body a { color: #0a1628; text-decoration: underline; text-underline-offset: 2px; }
+  .legal-modal-body .kv { display: grid; grid-template-columns: minmax(160px, 34%) 1fr; gap: 0.4rem 1.25rem; margin: 0.5rem 0 0.75rem; }
+  .legal-modal-body .kv dt { font-weight: 600; color: #333; }
+  .legal-modal-body .kv dd { margin: 0; color: #1a1a1a; }
+  @media (max-width: 620px) {
+    .legal-modal-panel { padding: 2rem 1.4rem 1.4rem; max-height: 92vh; }
+    .legal-modal-body .kv { grid-template-columns: 1fr; gap: 0.15rem; }
+    .legal-modal-body .kv dt { margin-top: 0.6rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; }
+    .legal-modal-body .kv dt:first-child { margin-top: 0; }
+  }
+
+  /* Five-principles block on approach section */
+  .principles { margin-top: 1.75rem; }
+  .principle { margin-bottom: 1.6rem; }
+  .principle h4 {
+    font-family: var(--sans); font-weight: 600; font-size: 1rem;
+    color: var(--gold); letter-spacing: 0.04em; margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .principle p { margin: 0; }
+
+  /* Contact layout */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(160px, 28%) 1fr;
+    gap: 0.8rem 1.5rem;
+    margin-top: 1.5rem;
+    padding: 1.75rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+  }
+  .contact-grid dt {
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--gold); text-transform: uppercase;
+  }
+  .contact-grid dd { margin: 0; color: var(--text-primary); }
+  .contact-grid dd a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 620px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 0.2rem 0; padding: 1.25rem 1rem; }
+    .contact-grid dt { margin-top: 0.85rem; }
+    .contact-grid dt:first-child { margin-top: 0; }
+  }
+
+  /* Closing banner */
+  .closing-banner {
+    max-width: var(--content-w); margin: 5rem auto 0; padding: 2.25rem 2rem;
+    background: linear-gradient(135deg, rgba(59,130,224,0.10), rgba(184,115,51,0.08));
+    border: 1px solid var(--border-gold); border-radius: 14px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+  }
+  .closing-banner p {
+    font-family: var(--serif); font-size: 1.45rem; font-weight: 500;
+    line-height: 1.4; color: var(--text-primary); margin: 0;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 620px) {
+    .closing-banner { padding: 1.75rem 1.25rem; margin-top: 3.5rem; }
+    .closing-banner p { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="bg-gradient" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top" class="nav-logo" aria-label="Nurdug AG home">
+      <img src="/logo.png" alt="Nurdug AG">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#firm" data-i18n="nav_firm">The Firm</a></li>
+      <li><a href="#focus" data-i18n="nav_focus">Focus</a></li>
+      <li><a href="#approach" data-i18n="nav_approach">Approach</a></li>
+      <li><a href="#distinction" data-i18n="nav_distinction">Profile</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="true" aria-label="Change language">EN<span class="lang-arrow">▼</span></button>
+        <div class="lang-menu" role="menu"></div>
+      </div>
+      <button class="mobile-toggle" type="button" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-bg">
+      <img src="/hero.jpg" alt="" loading="eager" fetchpriority="high">
+    </div>
+    <div class="hero-content">
+      <span class="hero-eyebrow" data-i18n="hero_eyebrow">Real Estate Holding · Berlin</span>
+      <h1 data-i18n="hero_title">Nurdug AG</h1>
+      <p class="hero-tagline" data-i18n="hero_tagline">A holding built for the long horizon</p>
+      <p class="hero-sub" data-i18n="hero_sub">Real estate is not a short-term position. It is a substantial asset - held with care, let with responsibility, developed with patience.</p>
+    </div>
+  </header>
+
+  <!-- THE FIRM -->
+  <section id="firm">
+    <div class="section-inner reveal">
+      <span class="section-eyebrow" data-i18n="firm_eyebrow">THE FIRM</span>
+      <h2 class="section-title" data-i18n="firm_title">Substance over speculation</h2>
+      <div class="section-text">
+        <p data-i18n="firm_p1">Nurdug AG is a holding company focused on real estate and long-term rental property management. Our commercial emphasis rests on the patient ownership, careful stewardship, and durable development of substantial property assets.</p>
+        <p data-i18n="firm_p2">Our understanding of real estate is shaped by continuity, substance, and responsibility. We do not regard property as a short-term market position. We regard it as a real asset of lasting consequence - its value shown not in the market's rhythm but in its quality, its usability, its earning power, and its capacity to endure.</p>
+        <p data-i18n="firm_p3">As a holding company, Nurdug AG provides the structural framework for the orderly direction of its real estate activities. Strategic oversight is combined with economic discipline so that assets are managed with the care and long horizon the work requires. Preservation of value, stability, and forward-looking development sit at the centre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR FOCUS -->
+  <section id="focus">
+    <div class="section-inner reveal">
+      <span class="section-eyebrow" data-i18n="focus_eyebrow">OUR FOCUS</span>
+      <h2 class="section-title" data-i18n="focus_title">Clearly defined. Deliberately narrow.</h2>
+      <div class="section-text">
+        <p data-i18n="focus_p1">The activity of Nurdug AG is deliberately narrow. We concentrate on real estate and its professional rental, on sound long-term management.</p>
+        <p data-i18n="focus_p2">In selecting and directing property holdings, we weight quality, location, substance, and long-term viability. What decides for us is not short-term market movement but the durable suitability of an asset, stable prospects for use, and a resilient economic foundation.</p>
+        <p data-i18n="focus_p3">In rental management we pursue a calm, professional, responsible approach. The aim is market-appropriate, reliable operation that secures the long-term value of the property and generates solid, durable returns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR APPROACH (5 principles) -->
+  <section id="approach">
+    <div class="section-inner reveal">
+      <span class="section-eyebrow" data-i18n="approach_eyebrow">OUR APPROACH</span>
+      <h2 class="section-title" data-i18n="approach_title">Five principles</h2>
+      <div class="section-text">
+        <p data-i18n="approach_intro">The conduct of Nurdug AG rests on a disposition that joins classical entrepreneurial thinking to real estate discipline.</p>
+        <div class="principles">
+          <div class="principle">
+            <h4 data-i18n="approach_1_title">Long horizons</h4>
+            <p data-i18n="approach_1_body">We do not think in short cycles but in durable periods. Our concern is the sustained protection and development of real estate value.</p>
+          </div>
+          <div class="principle">
+            <h4 data-i18n="approach_2_title">Substance</h4>
+            <p data-i18n="approach_2_body">We concentrate on assets with real quality and lasting relevance. Continuity weighs more heavily for us than short-term momentum.</p>
+          </div>
+          <div class="principle">
+            <h4 data-i18n="approach_3_title">Care and structure</h4>
+            <p data-i18n="approach_3_body">As a holding company we act with clear structures, orderly decision paths, and a high standard of economic discipline and accountability.</p>
+          </div>
+          <div class="principle">
+            <h4 data-i18n="approach_4_title">Reliable stewardship</h4>
+            <p data-i18n="approach_4_body">The letting of our properties proceeds with judgement, market knowledge, and operational care. Value preservation, quality of use, and durable earning power stand in the foreground.</p>
+          </div>
+          <div class="principle">
+            <h4 data-i18n="approach_5_title">Responsibility for value</h4>
+            <p data-i18n="approach_5_body">We understand the handling of real estate capital as a lasting obligation. To preserve value, develop it in an orderly manner, and strengthen it over the long run is the core of our self-understanding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT SETS US APART -->
+  <section id="distinction">
+    <div class="section-inner reveal">
+      <span class="section-eyebrow" data-i18n="distinction_eyebrow">WHAT SETS US APART</span>
+      <h2 class="section-title" data-i18n="distinction_title">Calm, clarity, continuity</h2>
+      <div class="section-text">
+        <p data-i18n="distinction_p1">Nurdug AG stands for a form of business practice marked by calm, clarity, and continuity. We do not follow short-term market thinking or an opportunistic approach. Our strength lies in concentration on what matters: substantial real estate, professional letting, orderly direction, and a durable understanding of value.</p>
+        <p data-i18n="distinction_p2">This posture is the foundation of stability and dependability. It allows real estate capital not merely to be held, but to be guided with prudence and strengthened over time in both its substance and its earning power.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELF-UNDERSTANDING -->
+  <section id="self">
+    <div class="section-inner reveal">
+      <span class="section-eyebrow" data-i18n="self_eyebrow">SELF-UNDERSTANDING</span>
+      <h2 class="section-title" data-i18n="self_title">A holding with standing</h2>
+      <div class="section-text">
+        <p data-i18n="self_p1">Nurdug AG understands itself as a holding with a clear and lasting standard. We combine economic reason with a fine sense for quality, structure, and sustainability. Our aim is to conduct real estate capital within an orderly and responsible framework, and in doing so to provide a resilient foundation for long-term value.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING BANNER -->
+  <div class="closing-banner reveal">
+    <p data-i18n="closing">Nurdug AG stands for substance-oriented real estate ownership, responsible letting, and long-term value.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner reveal">
+      <span class="section-eyebrow" data-i18n="contact_eyebrow">CONTACT</span>
+      <h2 class="section-title" data-i18n="contact_title">Berlin</h2>
+      <div class="section-text">
+        <p data-i18n="contact_intro">For business inquiries we are pleased to respond directly.</p>
+        <dl class="contact-grid">
+          <dt data-i18n="contact_address_label">REGISTERED OFFICE</dt>
+          <dd data-i18n="contact_address">Goethestraße 49, 12305 Berlin, Germany</dd>
+          <dt data-i18n="contact_email_label">EMAIL</dt>
+          <dd><a href="mailto:info@nurdug.org">info@nurdug.org</a></dd>
+          <dt data-i18n="contact_phone_label">TELEPHONE</dt>
+          <dd><a href="tel:+493050508720">+49 30 50508720</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/logo.png" alt="Nurdug AG">
+        <span data-i18n="footer_tagline">Real Estate Holding · Berlin</span>
+      </div>
+      <div class="footer-legal">
+        <div class="footer-legal-links">
+          <button type="button" class="footer-legal-link" data-open-modal="imprint" data-i18n="legal_imprint">Legal Notice</button>
+          <span class="footer-legal-sep" aria-hidden="true">·</span>
+          <button type="button" class="footer-legal-link" data-open-modal="privacy" data-i18n="legal_privacy">Privacy Policy</button>
+          <span class="footer-legal-sep" aria-hidden="true">·</span>
+          <button type="button" class="footer-legal-link" data-open-modal="cookies" data-i18n="legal_cookies">Cookies</button>
+        </div>
+        <div class="footer-legal-copy">
+          <span>© <span id="year">2026</span> </span><span data-i18n="footer_legal">Nurdug AG, registered in Berlin. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script-v1.js"></script>
+
+<!-- LEGAL MODALS -->
+<div class="legal-modal" id="modal-imprint" role="dialog" aria-modal="true" aria-labelledby="modal-imprint-title">
+  <div class="legal-modal-backdrop" data-modal-close></div>
+  <div class="legal-modal-panel">
+    <button type="button" class="legal-modal-close" data-modal-close aria-label="Close">×</button>
+    <!-- DE -->
+    <div class="legal-modal-body" data-lang="de">
+      <h3 id="modal-imprint-title-de">Impressum</h3>
+      <p>Angaben gemäß §5 TMG</p>
+      <dl class="kv">
+        <dt>Firma</dt><dd>Nurdug AG</dd>
+        <dt>Rechtsform</dt><dd>Aktiengesellschaft nach deutschem Recht</dd>
+        <dt>Sitz der Gesellschaft</dt><dd>Goethestraße 49, 12305 Berlin, Deutschland</dd>
+        <dt>Registergericht</dt><dd>Amtsgericht Charlottenburg, Berlin</dd>
+        <dt>Handelsregister</dt><dd>HRB 81605 B</dd>
+        <dt>USt-IdNr.</dt><dd>DE217181604</dd>
+        <dt>W-IdNr.</dt><dd>DE217181604-0001</dd>
+        <dt>Steuernummer</dt><dd>29/458/30271</dd>
+        <dt>DUNS-Nummer</dt><dd>34-405-7794</dd>
+        <dt>EBID</dt><dd>2 500374 497881</dd>
+        <dt>Vorstand</dt><dd>Gudrun Funkenweh-Herzog</dd>
+        <dt>Verantwortlich für den Inhalt nach §18 Abs. 2 MStV</dt><dd>Dr. Michael Herzog</dd>
+        <dt>E-Mail</dt><dd><a href="mailto:info@nurdug.org">info@nurdug.org</a></dd>
+        <dt>Telefon</dt><dd><a href="tel:+493050508720">+49 30 50508720</a></dd>
+        <dt>Telefax</dt><dd>+49 30 50508719</dd>
+      </dl>
+    </div>
+    <!-- EN -->
+    <div class="legal-modal-body" data-lang="en" id="modal-imprint-title">
+      <h3>Legal Notice</h3>
+      <p>Information pursuant to §5 German Telemedia Act (TMG)</p>
+      <dl class="kv">
+        <dt>Company</dt><dd>Nurdug AG</dd>
+        <dt>Legal form</dt><dd>Stock corporation (Aktiengesellschaft) under German law</dd>
+        <dt>Registered office</dt><dd>Goethestraße 49, 12305 Berlin, Germany</dd>
+        <dt>Register court</dt><dd>Local Court of Charlottenburg, Berlin</dd>
+        <dt>Commercial Register</dt><dd>HRB 81605 B</dd>
+        <dt>VAT identification number</dt><dd>DE217181604</dd>
+        <dt>Economic Identification Number</dt><dd>DE217181604-0001</dd>
+        <dt>Tax number</dt><dd>29/458/30271</dd>
+        <dt>DUNS number</dt><dd>34-405-7794</dd>
+        <dt>EBID</dt><dd>2 500374 497881</dd>
+        <dt>Management Board</dt><dd>Gudrun Funkenweh-Herzog</dd>
+        <dt>Responsible for content pursuant to §18(2) MStV</dt><dd>Dr. Michael Herzog</dd>
+        <dt>Email</dt><dd><a href="mailto:info@nurdug.org">info@nurdug.org</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+493050508720">+49 30 50508720</a></dd>
+        <dt>Fax</dt><dd>+49 30 50508719</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="legal-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+  <div class="legal-modal-backdrop" data-modal-close></div>
+  <div class="legal-modal-panel">
+    <button type="button" class="legal-modal-close" data-modal-close aria-label="Close">×</button>
+    <!-- DE -->
+    <div class="legal-modal-body" data-lang="de">
+      <h3 id="modal-privacy-title-de">Datenschutzerklärung</h3>
+      <p>Der Schutz Ihrer Daten ist uns wichtig. Die Webseite der Nurdug AG ist bewusst datensparsam gestaltet.</p>
+
+      <h4>1. Verantwortlicher</h4>
+      <p>Nurdug AG<br>Goethestraße 49<br>12305 Berlin<br>Deutschland</p>
+      <p>Telefon: <a href="tel:+493050508720">+49 30 50508720</a><br>E-Mail: <a href="mailto:info@nurdug.org">info@nurdug.org</a></p>
+
+      <h4>2. Allgemeine Hinweise</h4>
+      <p>Diese Webseite dient ausschließlich der Information über die Nurdug AG und ihre unternehmerischen Aktivitäten. Wir verwenden keine Cookies, keine Tracking-Technologien, keine Analyse-Tools und keine sonstigen Technologien zur Erstellung von Nutzerprofilen.</p>
+
+      <h4>3. Technisch erforderliche Datenverarbeitung</h4>
+      <p>Beim Aufruf unserer Webseite werden durch den Webserver bzw. den Hosting-Dienstleister technisch erforderliche Informationen verarbeitet. Dies kann insbesondere folgende Daten umfassen:</p>
+      <ul>
+        <li>IP-Adresse</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>aufgerufene Seite bzw. Datei</li>
+        <li>Browsertyp und Browserversion</li>
+        <li>verwendetes Betriebssystem</li>
+        <li>Referrer-URL</li>
+        <li>Zugriffsstatus</li>
+      </ul>
+      <p>Die Verarbeitung dieser Daten erfolgt ausschließlich zur technischen Bereitstellung der Webseite, zur Gewährleistung der Systemsicherheit sowie zur Sicherstellung eines stabilen und ordnungsgemäßen Betriebs.</p>
+
+      <h4>4. Keine weitergehende Datenerhebung</h4>
+      <p>Abgesehen von den technisch erforderlichen Verarbeitungen im Rahmen des Webseitenbetriebs erheben wir über diese Webseite keine personenbezogenen Daten. Insbesondere verwenden wir:</p>
+      <ul>
+        <li>kein Kontaktformular</li>
+        <li>keinen Newsletter</li>
+        <li>keine Analyse- oder Statistikdienste</li>
+        <li>keine Werbe- oder Remarketing-Technologien</li>
+        <li>keine Social-Media-Plugins</li>
+        <li>keine eingebetteten Drittinhalte mit Tracking-Funktion</li>
+      </ul>
+
+      <h4>5. Keine Cookies</h4>
+      <p>Unsere Webseite verwendet keine Cookies und keine vergleichbaren Technologien zur Speicherung von Informationen auf Ihrem Endgerät oder zum Zugriff auf bereits gespeicherte Informationen.</p>
+
+      <h4>6. Hosting</h4>
+      <p>Diese Webseite wird bei einem externen technischen Dienstleister gehostet. Im Rahmen des Hostings können die für den Betrieb der Webseite erforderlichen technischen Daten verarbeitet werden.</p>
+      <p>Hosting-Dienstleister:<br>Netlify, Inc.<br>44 Montgomery Street, Suite 300<br>San Francisco, CA 94104, USA</p>
+
+      <h4>7. Empfänger</h4>
+      <p>Eine Übermittlung personenbezogener Daten erfolgt nur insoweit, als dies technisch für den Betrieb der Webseite erforderlich ist oder wir hierzu gesetzlich verpflichtet sind.</p>
+
+      <h4>8. Speicherdauer</h4>
+      <p>Technisch verarbeitete Daten, insbesondere Server-Logfiles, werden nur so lange gespeichert, wie dies für die Gewährleistung des sicheren und ordnungsgemäßen Betriebs der Webseite erforderlich ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+      <h4>9. Ihre Rechte</h4>
+      <p>Ihnen stehen nach Maßgabe der gesetzlichen Vorschriften insbesondere folgende Rechte zu:</p>
+      <ul>
+        <li>Recht auf Auskunft</li>
+        <li>Recht auf Berichtigung</li>
+        <li>Recht auf Löschung</li>
+        <li>Recht auf Einschränkung der Verarbeitung</li>
+        <li>Recht auf Widerspruch</li>
+        <li>Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde</li>
+      </ul>
+
+      <h4>10. Aktualität</h4>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, sofern dies aufgrund rechtlicher, technischer oder organisatorischer Änderungen erforderlich wird.</p>
+    </div>
+    <!-- EN -->
+    <div class="legal-modal-body" data-lang="en" id="modal-privacy-title">
+      <h3>Privacy Policy</h3>
+      <p>Protecting your data matters to us. The Nurdug AG website has been deliberately designed to minimise data collection.</p>
+
+      <h4>1. Data controller</h4>
+      <p>Nurdug AG<br>Goethestraße 49<br>12305 Berlin<br>Germany</p>
+      <p>Phone: <a href="tel:+493050508720">+49 30 50508720</a><br>Email: <a href="mailto:info@nurdug.org">info@nurdug.org</a></p>
+
+      <h4>2. General information</h4>
+      <p>This website is intended solely to provide information about Nurdug AG and its business activities. We use no cookies, no tracking technologies, no analytics tools, and no other technologies that create user profiles.</p>
+
+      <h4>3. Technically required data processing</h4>
+      <p>When you access our website, the web server or hosting provider processes information that is technically required for the connection. This may include:</p>
+      <ul>
+        <li>IP address</li>
+        <li>date and time of access</li>
+        <li>page or file requested</li>
+        <li>browser type and version</li>
+        <li>operating system used</li>
+        <li>referrer URL</li>
+        <li>access status</li>
+      </ul>
+      <p>This data is processed solely for the technical provision of the website, for system security, and to ensure stable and proper operation.</p>
+
+      <h4>4. No further data collection</h4>
+      <p>Beyond the technically required processing for website operation, we do not collect any personal data through this website. In particular, we use:</p>
+      <ul>
+        <li>no contact form</li>
+        <li>no newsletter</li>
+        <li>no analytics or statistics services</li>
+        <li>no advertising or remarketing technologies</li>
+        <li>no social media plug-ins</li>
+        <li>no embedded third-party content with tracking functions</li>
+      </ul>
+
+      <h4>5. No cookies</h4>
+      <p>Our website uses no cookies and no comparable technologies for storing information on your device or for accessing information already stored.</p>
+
+      <h4>6. Hosting</h4>
+      <p>This website is hosted with an external technical service provider. In the course of hosting, the technical data required for operating the website may be processed.</p>
+      <p>Hosting provider:<br>Netlify, Inc.<br>44 Montgomery Street, Suite 300<br>San Francisco, CA 94104, USA</p>
+
+      <h4>7. Recipients</h4>
+      <p>Personal data is only transferred to the extent that it is technically necessary for the operation of the website or that we are legally required to do so.</p>
+
+      <h4>8. Retention period</h4>
+      <p>Technically processed data, in particular server log files, is stored only for as long as is necessary to ensure the secure and proper operation of the website, unless statutory retention requirements provide otherwise.</p>
+
+      <h4>9. Your rights</h4>
+      <p>Under the applicable statutory provisions you have the following rights in particular:</p>
+      <ul>
+        <li>right of access</li>
+        <li>right to rectification</li>
+        <li>right to erasure</li>
+        <li>right to restriction of processing</li>
+        <li>right to object</li>
+        <li>right to lodge a complaint with a data protection supervisory authority</li>
+      </ul>
+
+      <h4>10. Currency</h4>
+      <p>We reserve the right to adapt this privacy policy if this becomes necessary due to legal, technical, or organisational changes.</p>
+    </div>
+  </div>
+</div>
+
+<div class="legal-modal" id="modal-cookies" role="dialog" aria-modal="true" aria-labelledby="modal-cookies-title">
+  <div class="legal-modal-backdrop" data-modal-close></div>
+  <div class="legal-modal-panel">
+    <button type="button" class="legal-modal-close" data-modal-close aria-label="Close">×</button>
+    <!-- DE -->
+    <div class="legal-modal-body" data-lang="de">
+      <h3 id="modal-cookies-title-de">Cookies</h3>
+      <p>Diese Webseite verwendet keine Cookies.</p>
+      <p>Wir setzen auf dieser Webseite weder technische, funktionale, analytische noch werbliche Cookies ein. Es werden auch keine vergleichbaren Technologien wie Web Storage, Fingerprinting, Pixel oder Tracking-Elemente verwendet.</p>
+      <p>Eine Einwilligung nach §25 TDDDG ist daher nicht erforderlich.</p>
+      <p>Sollte sich dieser Zustand künftig ändern, richten wir einen dem Einsatz entsprechenden Consent-Mechanismus ein.</p>
+    </div>
+    <!-- EN -->
+    <div class="legal-modal-body" data-lang="en" id="modal-cookies-title">
+      <h3>Cookies</h3>
+      <p>This website uses no cookies.</p>
+      <p>We use neither technical, functional, analytical, nor advertising cookies on this site. No comparable technologies such as web storage, fingerprinting, pixels, or tracking elements are in use either.</p>
+      <p>No consent under §25 TDDDG is therefore required.</p>
+      <p>Should this ever change, a consent mechanism appropriate to the purpose will be put in place.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
