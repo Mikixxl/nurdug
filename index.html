@@ -167,11 +167,11 @@
     display: grid;
     grid-template-columns: minmax(160px, 28%) 1fr;
     gap: 0.8rem 1.5rem;
-    margin-top: 1.5rem;
-    padding: 1.75rem 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: 12px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
   }
   .contact-grid dt {
     font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
@@ -183,6 +183,35 @@
     .contact-grid { grid-template-columns: 1fr; gap: 0.2rem 0; padding: 1.25rem 1rem; }
     .contact-grid dt { margin-top: 0.85rem; }
     .contact-grid dt:first-child { margin-top: 0; }
+  }
+
+  /* Contact card wrapper with logo */
+  .contact-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 1.75rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+  }
+  .contact-card-mark img {
+    display: block;
+    max-height: 180px;
+    width: auto;
+    max-width: 200px;
+    opacity: 0.92;
+  }
+  @media (max-width: 720px) {
+    .contact-card {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      padding: 1.5rem 1.25rem;
+    }
+    .contact-card-mark { order: -1; text-align: center; }
+    .contact-card-mark img { max-height: 120px; }
   }
 
   /* Closing banner */
@@ -339,14 +368,19 @@
       <h2 class="section-title" data-i18n="contact_title">Berlin</h2>
       <div class="section-text">
         <p data-i18n="contact_intro">For business inquiries we are pleased to respond directly.</p>
-        <dl class="contact-grid">
-          <dt data-i18n="contact_address_label">REGISTERED OFFICE</dt>
-          <dd data-i18n="contact_address">Goethestraße 49, 12305 Berlin, Germany</dd>
-          <dt data-i18n="contact_email_label">EMAIL</dt>
-          <dd><a href="mailto:info@nurdug.org">info@nurdug.org</a></dd>
-          <dt data-i18n="contact_phone_label">TELEPHONE</dt>
-          <dd><a href="tel:+493050508720">+49 30 50508720</a></dd>
-        </dl>
+        <div class="contact-card">
+          <dl class="contact-grid">
+            <dt data-i18n="contact_address_label">REGISTERED OFFICE</dt>
+            <dd data-i18n="contact_address">Goethestraße 49, 12305 Berlin, Germany</dd>
+            <dt data-i18n="contact_email_label">EMAIL</dt>
+            <dd><a href="mailto:info@nurdug.org">info@nurdug.org</a></dd>
+            <dt data-i18n="contact_phone_label">TELEPHONE</dt>
+            <dd><a href="tel:+493050508720">+49 30 50508720</a></dd>
+          </dl>
+          <div class="contact-card-mark" aria-hidden="true">
+            <img src="/logo.png" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -355,7 +389,6 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">
-        <img src="/logo.png" alt="Nurdug AG">
         <span class="footer-tagline" data-i18n="footer_tagline">Real Estate Holding · Berlin</span>
       </div>
       <div class="footer-legal">
