@@ -581,7 +581,7 @@ footer {
 }
 
 .footer-logo { display: flex; align-items: center; gap: 14px; }
-.footer-logo img { height: 32px; width: auto; }
+.footer-logo img { height: 96px; width: auto; }
 
 .footer-tagline {
   font-size: 13px;
