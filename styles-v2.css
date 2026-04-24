@@ -374,7 +374,7 @@ section {
   letter-spacing: -0.015em;
   margin-bottom: 56px;
   color: var(--text-primary);
-  max-width: 760px;
+  max-width: 100%;
 }
 
 .section-text {
@@ -509,7 +509,7 @@ body[dir="rtl"] .wnot-item::before { left: auto; right: 0; }
   font-style: italic;
   color: var(--gold);
   line-height: 1.5;
-  max-width: 720px;
+  max-width: 100%;
 }
 
 /* Contact */
@@ -536,7 +536,7 @@ body[dir="rtl"] .wnot-item::before { left: auto; right: 0; }
   font-size: 15px;
   color: var(--text-secondary);
   margin-bottom: 32px;
-  max-width: 600px;
+  max-width: 100%;
 }
 
 .contact-rows { display: grid; grid-template-columns: 160px 1fr; row-gap: 16px; column-gap: 24px; align-items: baseline; }
