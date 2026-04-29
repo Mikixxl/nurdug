@@ -21,7 +21,7 @@ Entity data: AG (Aktiengesellschaft), HRB 81605 B Amtsgericht Charlottenburg, US
 
 ## Languages
 
-en, de, fr, es, it, pt, ru, zh (Simplified), zh-Hant (Traditional), ja, ko, hi, ar, he. Legal modals: DE + EN only (acceptable for static info site since switcher handles content accessibility).
+en, de, fr, es, it, pt, ru, zh (Simplified), zh-TW (Traditional), ja, ko, hi, ar, he. Legal modals: DE + EN only (acceptable for static info site since switcher handles content accessibility).
 
 ## Deploy
 
